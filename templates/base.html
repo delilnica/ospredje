@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Delilnica</title>
+</head>
+
+<style>
+.okvir {
+	max-width: 1200px;
+	text-align: center;
+	margin: auto;
+}
+
+.naslov {
+	text-decoration: none;
+	color: black;
+	font-variant: small-caps;
+}
+
+.obvestilo {
+	border: 1px solid black;
+	margin: auto;
+	max-width: 700px;
+}
+
+.uspeh {
+	background-color: lightgreen;
+	border-color: limegreen;
+}
+
+.napaka {
+	background-color: lightcoral;
+	border-color: darkred;
+}
+
+.besedilo {
+	text-align: left;
+	font-family: monospace;
+	background-color: white;
+	border: 1px solid gray;
+	padding: 10px;
+}
+
+#title, #author {
+	width: 400px;
+}
+
+#text {
+	width: 800px;
+	height: 300px;
+}
+
+</style>
+
+<body>
+	<div class="okvir">
+		<h1><a class="naslov" href="/">Delilnica</a></h1>
+		{% block opis %}{% endblock opis %}
+		<hr>
+		<div id="fragment">
+		{% block jedro %}
+
+		{% endblock jedro %}
+		</div>
+		<hr>
+		<p>Nejc Bertoncelj za NUKS, marec&ndash;april 2023</p>
+	</div>
+</body>
+
+</html>

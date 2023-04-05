@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block jedro %}
+
+{% if success %}
+<div class="obvestilo uspeh">
+	<p>Fragment je bil uspešno dodan. Dosegljiv je na <a href="{{ url }}">tem naslovu</a>.</p>
+</div>
+
+{% else %}
+
+<div class="obvestilo napaka">
+	<p>{{ reason }}</p>
+</div>
+{% endif %}
+{% endblock jedro %}

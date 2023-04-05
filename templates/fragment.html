@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block jedro %}
+
+{% if not success %}
+<div class="obvestilo napaka">
+	<p>{{ reason }}</p>
+</div>
+{% else %}
+<h2>{{ title }}</h2>
+<p>Avtor: {{ author }}
+<div class="besedilo">
+	{{ text }}
+</div>
+{% endif %}
+{% endblock jedro %}
