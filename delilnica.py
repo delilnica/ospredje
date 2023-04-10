@@ -10,12 +10,12 @@ app = Flask("delilnica")
 def hello():
     return render_template("index.html")
 
-@app.route("/fragment/<int:raw_id>")
-def get_fragment(raw_id: int):
-    frag_id = str(escape(raw_id))
-    print(f"Pridobivam cifro {frag_id}...")
+@app.route("/fragment/<string:raw_fragment_id>")
+def get_fragment(raw_fragment_id: str):
+    fid = escape(raw_fragment_id)
+    print(f"Pridobivam cifro {fid}...")
 
-    r = requests.get(api_url + "/fragment/" + frag_id, timeout=5.0)
+    r = requests.get(api_url + "/fragment/" + fid, timeout=5.0)
     r.raise_for_status()
 
     success = r.json()["success"]
@@ -48,7 +48,7 @@ def add_fragment():
     success = r.json()["success"]
 
     if success:
-        frag_url = "/fragment/" + str(r.json()["id"])
+        frag_url = "/fragment/" + str(r.json()["fid"])
         return render_template("add.html", success=success, url=frag_url)
     else:
         reason = r.json()["reason"]
