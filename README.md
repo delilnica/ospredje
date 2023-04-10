@@ -9,5 +9,5 @@ $ python3 -m venv venv
 $ . venv/bin/activate
 $ pip3 install -r requirements.txt
 
-$ flask --debug --app delilnica run
+$ flask --debug --app delilnica run --host=0.0.0.0
 ```
