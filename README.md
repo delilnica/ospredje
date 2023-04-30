@@ -2,8 +2,7 @@
 
 Aplikacija, izdelana v Flasku, ki se ukvarja s spletno stranjo Delilnice in pripadajočo komunikacijo z zaledjem.
 
-**URL** (delovanje ni zagotovljeno): 
-<http://nuks.bertoncelj.eu.org:5000>.
+**URL**: <http://nuks.bertoncelj.eu.org>.
 
 
 ## Pogon
