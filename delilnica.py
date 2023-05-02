@@ -2,8 +2,7 @@ from flask import Flask, render_template, request, url_for, flash, redirect
 from markupsafe import escape
 import requests
 
-# api_url = "http://localhost:8000/v1"
-api_url = "http://nuks.bertoncelj.eu.org:8000/v1"
+api_url = "http://zaledje:8000/v1"
 
 app = Flask("delilnica")
 
