@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block opis %}
+<p>Tukaj je, enostavna metoda za deljenje raznoraznih programskih in besedilnih izsekov, imenovanih <b>fragmenti</b>.</p>
+{% endblock opis %}
+
+{% block jedro %}
+<h2>Dodaj fragment</h2>
+<form method="POST" action="/add">
+	<div>
+		<label for="ime">Naslov</label>
+		<br>
+		<input name="ime" id="ime">
+	</div>
+
+<!--	<div>
+		<label for="author">Avtor</label>
+		<br>
+		<input name="author" id="author" value="">
+	</div>-->
+
+	<div>
+		<label for="besedilo">Besedilo</label>
+		<br>
+		<textarea name="besedilo" id="besedilo"></textarea>
+		<br>
+		<label for="zaseben">Fragment je zaseben</label>
+		<input name="zaseben" id="zaseben" type="checkbox">
+	</div>
+
+	<div>
+		<input type="submit" value="Oddaj">
+	</div>
+</form>
+{% endblock jedro %}

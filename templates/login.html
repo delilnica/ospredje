@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block jedro %}
+
+<h2>Prijava</h2>
+{% if status == 1 %}
+	{% if not prijavljen %}
+<form method="POST" action="/login">
+	<div>
+		<label for="vzdevek">Vzdevek</label>
+		<br>
+		<input name="vzdevek" id="vzdevek">
+	</div>
+
+	<div>
+		<label for="geslo">Geslo</label>
+		<br>
+		<input name="geslo" id="geslo" type="password">
+	</div>
+
+	<div>
+		<input type="submit" value="Potrdi">
+	</div>
+</form>
+	{% else %}
+	<div class="obvestilo napaka">
+		<p>Prijavljeni ste že.</p>
+	</div>
+	{% endif %}
+{% else %}
+	{% if success %}
+	<div class="obvestilo uspeh">
+		<p>Uspeh</p>
+	</div>
+	{% else %}
+	<div class="obvestilo napaka">
+		<p>Napaka: {{ response }}</p>
+		<p><a href="">Nazaj</a></p>
+	</div>
+	{% endif %}
+{% endif %}
+{% endblock jedro %}

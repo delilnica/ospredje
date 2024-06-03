@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block jedro %}
+
+{% if not success %}
+<div class="obvestilo napaka">
+	<p>{{ response }} {% if koda != 0 %}(koda {{ status }}){% endif %}</p>
+</div>
+{% else %}
+<h2>{{ ime }}</h2>
+<p>Datum: {{ datum }}
+<div class="besedilo">
+{{ besedilo }}
+</div>
+{% endif %}
+{% endblock jedro %}

@@ -1,0 +1,45 @@
+.okvir {
+	max-width: 1200px;
+	text-align: center;
+	margin: auto;
+	font-family: sans-serif;
+}
+
+.naslov {
+	text-decoration: none;
+	color: black;
+	font-variant: small-caps;
+}
+
+.obvestilo {
+	border: 1px solid black;
+	margin: auto;
+	max-width: 700px;
+}
+
+.uspeh {
+	background-color: lightgreen;
+	border-color: limegreen;
+}
+
+.napaka {
+	background-color: lightcoral;
+	border-color: darkred;
+}
+
+.besedilo {
+	text-align: left;
+	font-family: monospace;
+	background-color: white;
+	border: 1px solid gray;
+	padding: 10px;
+}
+
+#ime {
+	width: 400px;
+}
+
+#besedilo {
+	width: 800px;
+	height: 300px;
+}

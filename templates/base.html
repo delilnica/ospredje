@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/static/stil.css">
+	<title>Delilnica</title>
+</head>
+
+<body>
+	<div class="okvir">
+		<h1><a class="naslov" href="/">Delilnica</a></h1>
+		{% block opis %}{% endblock opis %}
+		<hr>
+		<div id="fragment">
+		{% block jedro %}
+
+		{% endblock jedro %}
+		</div>
+		<hr>
+		{% if not prijavljen %}
+		<p><a href="/login">Prijava</a></p>
+		{% else %}
+		<p>Prijavljen kot {{ vzd }} — <a href="/logout">odjavi</a></p>
+		{% endif %}
+		<p>Nejc Bertoncelj, junij 2024</p>
+	</div>
+</body>
+
+</html>
