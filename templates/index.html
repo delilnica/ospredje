@@ -6,26 +6,27 @@
 
 {% block jedro %}
 <h2>Dodaj fragment</h2>
-<form method="POST" action="/add">
+<form id="fragment_obrazec" onsubmit="oddaj_fragment(); return false;">
 	<div>
 		<label for="ime">Naslov</label>
 		<br>
 		<input name="ime" id="ime">
 	</div>
 
-<!--	<div>
-		<label for="author">Avtor</label>
-		<br>
-		<input name="author" id="author" value="">
-	</div>-->
+	<div id="ime" style="margin: 0 auto; margin-top: 10px;">
+		<label>Avtor</label>
+		<p style="background-color: whitesmoke;">{% if prijavljen %}{{ vzd }}{% else %}<i>anonimnež</i>{% endif %}</p>
+	</div>
 
 	<div>
 		<label for="besedilo">Besedilo</label>
 		<br>
 		<textarea name="besedilo" id="besedilo"></textarea>
 		<br>
+{% if prijavljen %}
 		<label for="zaseben">Fragment je zaseben</label>
 		<input name="zaseben" id="zaseben" type="checkbox">
+{% endif %}
 	</div>
 
 	<div>
