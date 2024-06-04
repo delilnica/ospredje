@@ -119,34 +119,6 @@ def add_fragment():
         response = r.json()["response"]
         return render_template("add.html", success=success, response=response, status=status, prijavljen=prijavljen(), vzd=vzd())
 
-@app.route("/register", methods=["GET", "POST"])
+@app.route("/register", methods=["GET"])
 def register():
-    if request.method == "GET":
-        return render_template("register.html", status=1, prijavljen=prijavljen(), vzd=vzd());
-    else:
-        vzdevek = request.form["vzdevek"]
-        enaslov = request.form["enaslov"]
-        geslo   = request.form["geslo"]
-        r = requests.post(api_url + "/register.php", json={
-            "vzdevek": vzdevek,
-            "enaslov": enaslov,
-            "geslo": geslo
-            })
-
-        success = (r.status_code == 201)
-        response=""
-
-        if not success:
-            fragment = r.json()
-            response, status = fragment["response"], fragment["status"]
-        else:
-            return redirect("/login", code=307)
-        # if success:
-        #     # return redirect(url_for("/"))
-        #     resp = make_response(redirect("/"))
-        #     # resp.set_cookie("zeton", zeton, httponly=True)
-        #     resp.set_cookie("zeton", zeton)
-        #     resp.set_cookie("vzdevek", vzdevek)
-        #     return resp
-
-        return render_template("register.html", status=2, success=success, response=response);
+    return render_template("register.html", status=1, prijavljen=prijavljen(), vzd=vzd());

@@ -4,23 +4,23 @@
 <h2>Registracija</h2>
 {% if status == 1 %}
 	{% if not prijavljen %}
-<form method="POST" action="/register">
+<form id="registracija_obrazec" onsubmit="registriraj_uporabnika(); return false;">
 	<div>
-		<label for="vzdevek">Vzdevek</label>
+		<label for="reg_vzdevek">Vzdevek</label>
 		<br>
-		<input name="vzdevek" id="vzdevek">
+		<input name="reg_vzdevek" id="reg_vzdevek">
 	</div>
 
 	<div>
-		<label for="enaslov">E-poštni naslov</label>
+		<label for="reg_enaslov">E-poštni naslov</label>
 		<br>
-		<input name="enaslov" id="enaslov">
+		<input name="reg_enaslov" id="reg_enaslov">
 	</div>
 
 	<div>
-		<label for="geslo">Geslo</label>
+		<label for="reg_geslo">Geslo</label>
 		<br>
-		<input name="geslo" id="geslo" type="password">
+		<input name="reg_geslo" id="reg_geslo" type="password">
 	</div>
 
 	<div>
