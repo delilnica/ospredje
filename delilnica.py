@@ -85,12 +85,6 @@ def login():
 
         return render_template("login.html", status=2, success=success, response=response);
 
-@app.route("/logout", methods=["GET"])
-def logout():
-    resp = make_response(redirect("/"))
-    resp.delete_cookie("zeton")
-    return resp
-
 # ref: nalaganje fragmenta
 @app.route("/add", methods=["POST"])
 def add_fragment():
