@@ -26,7 +26,9 @@ function odpri_prijavo(ne_zapri=true)
 function odjavi()
 {
 	document.cookie = "zeton=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+	document.cookie = "zeton=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/fragment;";
 	document.cookie = "vzdevek=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+	document.cookie = "vzdevek=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/fragment;";
 	location.reload();
 }
 
