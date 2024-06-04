@@ -78,8 +78,8 @@ function prijavi_uporabnika(reload=true, vzdevek=null, geslo=null)
 	let odg = document.getElementById("odgovor");
 
 	if (vzdevek == null) {
-		let vzdevek = document.getElementById("vzdevek").value;
-		let geslo   = document.getElementById("geslo").value;
+		var vzdevek = document.getElementById("vzdevek").value;
+		var geslo   = document.getElementById("geslo").value;
 	}
 
 	const params = {
