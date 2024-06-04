@@ -15,6 +15,7 @@
 	border: 1px solid black;
 	margin: auto;
 	max-width: 700px;
+	padding: 10px;
 }
 
 .uspeh {
@@ -42,4 +43,8 @@
 #besedilo {
 	width: 800px;
 	height: 300px;
+}
+
+#prijava_okvir {
+	margin-bottom: 10px;
 }
