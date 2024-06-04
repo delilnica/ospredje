@@ -30,6 +30,48 @@ function odjavi()
 	location.reload();
 }
 
+function oddaj_fragment()
+{
+	let odg = document.getElementById("odgovor");
+
+	let ime      = document.getElementById("ime").value;
+	let besedilo = document.getElementById("besedilo").value;
+	let zaseben  = document.getElementById("zaseben") ? document.getElementById("zaseben").value: 0;
+
+	const params = {
+		"ime": ime,
+		"besedilo": besedilo,
+		"zaseben": zaseben
+	}
+
+	let uspeh = false;
+	var headers = new Headers();
+	headers.append("Authorization", getCookie("zeton"));
+
+	fetch("http://localhost:81/fragment.php", {
+		method: "POST",
+		body: JSON.stringify(params),
+		headers: headers
+	}).then(function(response) {
+		uspeh = (response.status == 201)
+		return response.json();
+	}).then(function(j) {
+		console.log(j);
+		if (uspeh) {
+			odg.className = "obvestilo uspeh";
+			odg.innerHTML = "Fragment je bil uspešno dodan. Dosegljiv je pod oznako <a href='/fragment/" + j["response"] + "'>" + j["response"] + "</a>";
+		} else {
+			odg.className = "obvestilo napaka";
+			odg.innerHTML = j["response"];
+		}
+		odg.style.display = "block";
+
+	}).catch(function(err) {
+		console.log(err);
+		alert("Napaka, podrobnosti v konzoli.");
+	})
+}
+
 function prijavi_uporabnika(reload=true, vzdevek=null, geslo=null)
 {
 	// let obr = document.getElementById("prijava_obrazec");
@@ -124,21 +166,21 @@ function registriraj_uporabnika()
 		console.log(err);
 		alert("Napaka, podrobnosti v konzoli.");
 	})
-
 }
 
+
 // https://www.w3schools.com/js/js_cookies.asp
-// function getCookie(cname) {
-// 	let name = cname + "=";
-// 	let ca = document.cookie.split(';');
-// 	for(let i = 0; i < ca.length; i++) {
-// 		let c = ca[i];
-// 		while (c.charAt(0) == ' ') {
-// 			c = c.substring(1);
-// 		}
-// 		if (c.indexOf(name) == 0) {
-// 			return c.substring(name.length, c.length);
-// 		}
-// 	}
-// 	return "";
-// }
+function getCookie(cname) {
+	let name = cname + "=";
+	let ca = document.cookie.split(';');
+	for(let i = 0; i < ca.length; i++) {
+		let c = ca[i];
+		while (c.charAt(0) == ' ') {
+			c = c.substring(1);
+		}
+		if (c.indexOf(name) == 0) {
+			return c.substring(name.length, c.length);
+		}
+	}
+	return "";
+}
