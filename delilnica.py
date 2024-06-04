@@ -59,4 +59,4 @@ def get_fragment(raw_fragment_id: str):
 
 @app.route("/register", methods=["GET"])
 def register():
-    return render_template("register.html", status=1, prijavljen=prijavljen(), vzd=vzd());
+    return render_template("register.html", prijavljen=prijavljen(), vzd=vzd());

@@ -2,8 +2,7 @@
 {% block jedro %}
 
 <h2>Registracija</h2>
-{% if status == 1 %}
-	{% if not prijavljen %}
+{% if not prijavljen %}
 <form id="registracija_obrazec" onsubmit="registriraj_uporabnika(); return false;">
 	<div>
 		<label for="reg_vzdevek">Vzdevek</label>
@@ -31,17 +30,5 @@
 	<div class="obvestilo napaka">
 		<p>Prijavljeni ste že.</p>
 	</div>
-	{% endif %}
-{% else %}
-	{% if success %}
-	<div class="obvestilo uspeh">
-		<p>Uspeh</p>
-	</div>
-	{% else %}
-	<div class="obvestilo napaka">
-		<p>Napaka: {{ response }}</p>
-		<p><a href="">Nazaj</a></p>
-	</div>
-	{% endif %}
 {% endif %}
 {% endblock jedro %}
