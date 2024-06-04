@@ -57,34 +57,6 @@ def get_fragment(raw_fragment_id: str):
         return render_template("fragment.html", success=success, response=response, status=status,
                                prijavljen=prijavljen(), vzd=vzd())
 
-@app.route("/login", methods=["GET", "POST"])
-def login():
-    if request.method == "GET":
-        return render_template("login.html", status=1, prijavljen=prijavljen(), vzd=vzd());
-    else:
-        vzdevek = request.form["vzdevek"]
-        geslo   = request.form["geslo"]
-        r = requests.post(api_url + "/login.php", json={
-            "vzdevek": vzdevek,
-            "geslo": geslo
-            })
-
-        fragment = r.json()
-        response, status = fragment["response"], fragment["status"]
-        success = (r.status_code == 200)
-        zeton = response
-        print(zeton)
-
-        if success:
-            # return redirect(url_for("/"))
-            resp = make_response(redirect("/"))
-            # resp.set_cookie("zeton", zeton, httponly=True)
-            resp.set_cookie("zeton", zeton)
-            resp.set_cookie("vzdevek", vzdevek)
-            return resp
-
-        return render_template("login.html", status=2, success=success, response=response);
-
 # ref: nalaganje fragmenta
 @app.route("/add", methods=["POST"])
 def add_fragment():
