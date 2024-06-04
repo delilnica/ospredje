@@ -13,19 +13,34 @@
 <body>
 	<div class="okvir">
 		<h1><a class="naslov" href="/">Delilnica</a></h1>
-		{% block opis %}{% endblock opis %}
-		<hr>
-		<div id="fragment">
-		{% block jedro %}
+{% block opis %}{% endblock opis %}
 
-		{% endblock jedro %}
+{% if not prijavljen %}
+		<p><a id="prijava_gumb" href="#" onclick="odpri_prijavo(); return false;">Prijava</a></p>
+{% else %}
+		<p>Prijavljen kot {{ vzd }} — <a id="odjavi" href="#" onclick="odjavi(); return false;">Odjavi</a>
+{% endif %}
+
+		<div id="prijava_okvir" style="display: none;">
+			<form id="prijava_obrazec" onsubmit="prijavi_uporabnika(); return false;">
+				<label for="vzdevek">Vzdevek:</label>
+				<input name="vzdevek" id="vzdevek">
+
+				<label for="geslo" style="margin-left: 15px;">Geslo:</label>
+				<input name="geslo" id="geslo" type="password">
+
+				<input type="submit" value="Potrdi" style="margin-left: 15px;">
+				<p>Ni računa? <a href="/register">Registracija</a></p>
+			</form>
+		</div>
+
+		<div id="odgovor"></div>
+		<hr>
+
+		<div id="fragment">
+{% block jedro %}{% endblock jedro %}
 		</div>
 		<hr>
-		{% if not prijavljen %}
-		<p><a href="/login">Prijava</a></p>
-		{% else %}
-		<p>Prijavljen kot {{ vzd }} — <a href="/logout">odjavi</a></p>
-		{% endif %}
 		<p>Nejc Bertoncelj, junij 2024</p>
 	</div>
 </body>
