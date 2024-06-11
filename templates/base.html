@@ -19,6 +19,7 @@
 		<p><a id="prijava_gumb" href="#" onclick="odpri_prijavo(); return false;">Prijava</a></p>
 {% else %}
 		<p>Prijavljen kot {{ vzd }} — <a id="odjavi" href="#" onclick="odjavi(); return false;">Odjavi</a>
+		<p id="admin_gumb" style="/*display: none;*/"><a href="/admin">Administracija</a></p>
 {% endif %}
 
 		<div id="prijava_okvir" style="display: none;">
