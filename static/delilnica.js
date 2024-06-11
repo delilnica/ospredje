@@ -1,25 +1,11 @@
-// let vzd = getCookie("vzdevek");
-//
-// if (vzd != "") {
-// 	// document.getElementById("prijava_uporabnik").innerHTML = vzd;
-// 	document.getElementById("odjavi").style.display = "block";
-// 	document.getElementById("prijavi").style.display = "none";
-// 	document.getElementById("prijava_uporabnik").innerHTML = "Prijavljen kot " + vzdevek;
-// }
-
 function odpri_prijavo(ne_zapri=true)
 {
 	let o  = document.getElementById("prijava_okvir");
-	// let p  = document.getElementById("prijavi");
-	// let od = document.getElementById("odjavi");
 
 	if (ne_zapri) {
 		o.style.display = "block";
-		// p.style.display = "none";
 	} else {
 		o.style.display  = "none";
-		// od.style.display = "none";
-		// p.style.display  = "block";
 	}
 }
 
@@ -89,9 +75,7 @@ function oddaj_fragment()
 
 function prijavi_uporabnika(reload=true, vzdevek=null, geslo=null)
 {
-	// let obr = document.getElementById("prijava_obrazec");
 	let odg = document.getElementById("odgovor");
-	// let adm = document.getElementById("admin_gumb");
 
 	if (vzdevek == null) {
 		var vzdevek = document.getElementById("vzdevek").value;
@@ -109,8 +93,6 @@ function prijavi_uporabnika(reload=true, vzdevek=null, geslo=null)
 		method: "POST",
 		body: JSON.stringify(params)
 	}).then(function(response) {
-		// let odgovor = response.json();
-		// console.log(odgovor);
 		uspeh = (response.status == 200)
 		return response.json();
 	}).then(function(j) {
@@ -157,8 +139,6 @@ function registriraj_uporabnika()
 		method: "POST",
 		body: JSON.stringify(params)
 	}).then(function(response) {
-		// let odgovor = response.json();
-		// console.log(odgovor);
 		uspeh = (response.status == 201)
 		if (!uspeh) {
 			return response.json();
@@ -172,11 +152,6 @@ function registriraj_uporabnika()
 			odg.className = "obvestilo napaka";
 			odg.innerHTML = j["response"];
 			odg.style.display = "block";
-
-			// odpri_prijavo(false);
-			// odg.style.display = "none";
-			// document.cookie = "zeton=" + j["response"];
-			// document.cookie = "vzdevek=" + vzdevek;
 
 	}).catch(function(err) {
 		console.log(err);

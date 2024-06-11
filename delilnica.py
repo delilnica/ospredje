@@ -8,7 +8,6 @@ app = Flask("delilnica")
 
 def prijavljen():
     avt = request.cookies.get("zeton")
-    # print(avt)
 
     return avt != None
 
