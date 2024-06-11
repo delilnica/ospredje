@@ -11,5 +11,11 @@
 <div class="besedilo">
 {{ besedilo }}
 </div>
+
+{% if datoteka %}
+<div class="datoteka">
+	<p>Fragmentu je priložena <a href="{{ datoteka }}">datoteka</a>.</p>
+</div>
+{% endif %}
 {% endif %}
 {% endblock jedro %}

@@ -50,7 +50,8 @@ def get_fragment(raw_fragment_id: str):
                                datum=fragment["datum"],
                                besedilo=fragment["besedilo"],
                                prijavljen=prijavljen(),
-                               vzd=vzd()
+                               vzd=vzd(),
+                               datoteka=(api_url + "shramba/" + fragment["uri"] if fragment["did"] else False)
                                )
     else:
         print(r.status_code, fragment)
