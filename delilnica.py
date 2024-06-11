@@ -60,3 +60,28 @@ def get_fragment(raw_fragment_id: str):
 @app.route("/register", methods=["GET"])
 def register():
     return render_template("register.html", prijavljen=prijavljen(), vzd=vzd());
+
+@app.route("/admin", methods=["GET"])
+def admin():
+    if not prijavljen():
+        return redirect("/", code=302)
+
+    headers = {"Authorization": request.cookies.get("zeton")}
+
+    r = requests.get(api_url + "fragment.php", headers=headers, timeout=5.0)
+
+    fragment1 = r.json()
+    response1, status1 = fragment1["response"], fragment1["status"]
+    success1 = (r.status_code == 200)
+    if not success1:
+        return redirect("/", code=302)
+
+    r = requests.get(api_url + "admin.php", headers=headers, timeout=5.0)
+
+    fragment2 = r.json()
+    response2, status2 = fragment2["response"], fragment2["status"]
+    success2 = (r.status_code == 200)
+    if not success2:
+        return redirect("/", code=302)
+
+    return render_template("admin.html", vzd=vzd(), prijavljen=prijavljen(), fragmenti=response1, uporabniki=response2);

@@ -170,6 +170,51 @@ function registriraj_uporabnika()
 	})
 }
 
+function izbris_fragmenta(id)
+{
+	var headers = new Headers();
+	headers.append("Authorization", getCookie("zeton"));
+
+	const params = {
+		"izbris": true,
+		"id": id
+	}
+
+	fetch("http://localhost:81/fragment.php", {
+		method: "POST",
+		body: JSON.stringify(params),
+		headers: headers,
+	}).then(function(response) {
+		location.reload();
+	}).catch(function(err) {
+		console.log(err);
+		alert("Napaka, podrobnosti v konzoli.");
+	})
+}
+
+function izbris_uporabnika(id)
+{
+	var headers = new Headers();
+	headers.append("Authorization", getCookie("zeton"));
+
+	const params = {
+		"izbris": true,
+		"id": id
+	}
+
+	fetch("http://localhost:81/admin.php", {
+		method: "POST",
+		body: JSON.stringify(params),
+		headers: headers,
+	}).then(function(response) {
+		// console.log(response.json());
+		location.reload();
+
+	}).catch(function(err) {
+		console.log(err);
+		alert("Napaka, podrobnosti v konzoli.");
+	})
+}
 
 // https://www.w3schools.com/js/js_cookies.asp
 function getCookie(cname) {
