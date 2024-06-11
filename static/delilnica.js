@@ -207,7 +207,30 @@ function izbris_uporabnika(id)
 		body: JSON.stringify(params),
 		headers: headers,
 	}).then(function(response) {
-		// console.log(response.json());
+		location.reload();
+
+	}).catch(function(err) {
+		console.log(err);
+		alert("Napaka, podrobnosti v konzoli.");
+	})
+}
+
+function uporabnik_admin(id)
+{
+	var headers = new Headers();
+	headers.append("Authorization", getCookie("zeton"));
+
+	const params = {
+		"id": id,
+		"admin": true // obrne vrednost
+	}
+
+	fetch("http://localhost:81/admin.php", {
+		method: "POST",
+		body: JSON.stringify(params),
+		headers: headers,
+	}).then(function(response) {
+		// console.log(response);
 		location.reload();
 
 	}).catch(function(err) {
