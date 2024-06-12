@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block jedro %}
+
+<h2>Fragmenti</h2>
+
+<table>
+<tr>
+	<th>ID</th>
+	<th>Oznaka</th>
+	<th>Uporabnik</th>
+	<th>IP</th>
+	<th>Datum</th>
+	<th>Ime</th>
+	<th>Besedilo</th>
+	<th>Zaseben</th>
+	<th>Datoteka</th>
+</tr>
+{% for fragment in fragmenti %}
+	<tr>
+		<td>{{ fragment["id"] }}</td>
+		<td><a href="/fragment/{{ fragment['oznaka'] }}">{{ fragment["oznaka"] }}</a></td>
+		<td>{{ fragment["uid"] }}</td>
+		<td>{{ fragment["ip"] }}</td>
+		<td>{{ fragment["datum"] }}</td>
+		<td>{{ fragment["ime"] }}</td>
+		<td>{{ fragment["besedilo"] | truncate(128) }}</td>
+		<td><a href="#" onclick="obrni_zasebnost({{ fragment['id'] }}); return false;">{{ fragment["je_zaseben"] }}</a></td>
+		<td>{{ fragment["did"] or "-" }}</td>
+		<td><a href="#" onclick="izbris_fragmenta({{ fragment['id'] }}); return false;">Izbris</a></td>
+	</tr>
+{% endfor %}
+</table>
+
+<h2>Uporabniki</h2>
+
+<table>
+<tr>
+	<th>ID</th>
+	<th>Vzdevek</th>
+	<th>E-naslov</th>
+	<th>Datum registracije</th>
+	<th>Je administrator</th>
+</tr>
+{% for uporabnik in uporabniki %}
+	<tr>
+		<td>{{ uporabnik["id"] }}</td>
+		<td>{{ uporabnik["vzdevek"] }}</td>
+		<td>{{ uporabnik["enaslov"] }}</td>
+		<td>{{ uporabnik["datum_reg"] }}</td>
+		<td><a href="#" onclick="uporabnik_admin({{ uporabnik['id'] }}); return false;">{{ uporabnik["admin"] }}</a></td>
+		<td><a href="#" onclick="izbris_uporabnika({{ uporabnik['id'] }}); return false;">Izbris</a></td>
+	</tr>
+{% endfor %}
+</table>
+
+{% endblock jedro %}
