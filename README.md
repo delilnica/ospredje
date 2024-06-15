@@ -1,6 +1,8 @@
 # Ospredje za Delilnico
 
-Aplikacija, izdelana v deloma z Javascriptom in deloma s Flaskom, ki se ukvarja s spletno stranjo Delilnice in pripadajočo komunikacijo z zaledjem.
+Spletna aplikacija, ki se ukvarja s spletno stranjo Delilnice in pripadajočo komunikacijo z zaledjem.
+
+Osnovana je na Flasku za ključne strani (ogled in dodajanje fragmenta, registracija, administracija), preostanek pa je zaradi hitrejšega povratnega odziva izdelan z Javascriptom. Flask tudi nudi spletni strežnik.
 
 ## Zagon iz ukazne vrstice
 
