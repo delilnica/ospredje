@@ -183,6 +183,28 @@ function izbris_fragmenta(id)
 	})
 }
 
+function obrni_zasebnost(id)
+{
+	var headers = new Headers();
+	headers.append("Authorization", getCookie("zeton"));
+
+	const params = {
+		"zasebnost": true,
+		"id": id
+	}
+
+	fetch(api_url + "/fragment.php", {
+		method: "POST",
+	   body: JSON.stringify(params),
+		  headers: headers,
+	}).then(function(response) {
+		location.reload();
+	}).catch(function(err) {
+		console.log(err);
+		alert("Napaka, podrobnosti v konzoli.");
+	})
+}
+
 function izbris_uporabnika(id)
 {
 	var headers = new Headers();
