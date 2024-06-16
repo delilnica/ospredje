@@ -1,3 +1,5 @@
+var api_url = "http://localhost:81"
+
 function odpri_prijavo(ne_zapri=true)
 {
 	let o  = document.getElementById("prijava_okvir");
@@ -48,7 +50,7 @@ function oddaj_fragment()
 		var headers = new Headers();
 		headers.append("Authorization", getCookie("zeton"));
 
-		fetch("http://localhost:81/fragment.php", {
+		fetch(api_url + "/fragment.php", {
 			method: "POST",
 			body: JSON.stringify(params),
 			headers: headers
@@ -89,7 +91,7 @@ function prijavi_uporabnika(reload=true, vzdevek=null, geslo=null)
 
 	let uspeh = false;
 
-	fetch("http://localhost:81/login.php", {
+	fetch(api_url + "/login.php", {
 		method: "POST",
 		body: JSON.stringify(params)
 	}).then(function(response) {
@@ -135,7 +137,7 @@ function registriraj_uporabnika()
 
 	let uspeh = false;
 
-	fetch("http://localhost:81/register.php", {
+	fetch(api_url + "/register.php", {
 		method: "POST",
 		body: JSON.stringify(params)
 	}).then(function(response) {
@@ -169,7 +171,7 @@ function izbris_fragmenta(id)
 		"id": id
 	}
 
-	fetch("http://localhost:81/fragment.php", {
+	fetch(api_url + "/fragment.php", {
 		method: "POST",
 		body: JSON.stringify(params),
 		headers: headers,
@@ -191,7 +193,7 @@ function izbris_uporabnika(id)
 		"id": id
 	}
 
-	fetch("http://localhost:81/admin.php", {
+	fetch(api_url + "/admin.php", {
 		method: "POST",
 		body: JSON.stringify(params),
 		headers: headers,
@@ -214,7 +216,7 @@ function uporabnik_admin(id)
 		"admin": true // obrne vrednost
 	}
 
-	fetch("http://localhost:81/admin.php", {
+	fetch(api_url + "/admin.php", {
 		method: "POST",
 		body: JSON.stringify(params),
 		headers: headers,
