@@ -58,7 +58,10 @@ function oddaj_fragment()
 
 		let uspeh = false;
 		var headers = new Headers();
-		headers.append("Authorization", getCookie("zeton"));
+		var zeton = getCookie("zeton");
+
+		if (zeton != "")
+			headers.append("Authorization", getCookie("zeton"));
 
 		fetch(api_url + "/fragment.php", {
 			method: "POST",
