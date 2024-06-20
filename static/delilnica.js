@@ -26,8 +26,18 @@ function oddaj_fragment()
 
 	let ime      = document.getElementById("ime").value;
 	let besedilo = document.getElementById("besedilo").value;
-	let zaseben  = document.querySelector("#zaseben").checked ? 1 : 0;
-	let datoteka = document.querySelector('input[type="file"]').files[0];
+
+	try {
+		var zaseben  = document.querySelector("#zaseben").checked ? 1 : 0;
+	} catch (e) {
+		var zaseben = 0;
+	}
+
+	try {
+		var datoteka = document.querySelector('input[type="file"]').files[0];
+	} catch (e) {
+		var datoteka = false;
+	}
 
 	var params = {
 		"ime": ime,
